@@ -1,21 +1,19 @@
 import React from "react";
 import "./Sections.css";
+import { Link } from "react-router-dom";   // <-- import Link
 
 export default function Sections() {
   const sections = [
     {
       title: "ART",
       kicker: "Explore it and see where I am at.",
-      
       href: "/paintings",
     },
     {
       title: "CONTACT ME",
       kicker: "Let's connect.",
-      
       href: "/contact",
     },
-
   ];
 
   return (
@@ -27,9 +25,9 @@ export default function Sections() {
               <h2 className="headline">{s.title}</h2>
               <p className="kicker">{s.kicker}</p>
               <p className="body">{s.body}</p>
-              <a className="learn-more" href={s.href} aria-label="Learn more">
+              <Link className="learn-more" to={s.href} aria-label="Learn more">
                 LEARN MORE →
-              </a>
+              </Link>
             </article>
 
             {idx < sections.length - 1 && (

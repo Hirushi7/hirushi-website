@@ -16,7 +16,7 @@ import Experience from "../components/Experience";
 import Sections from "../components/Sections";
 import Ex from "../components/Ex";
 import Footer from "../components/Footer";
-
+import { Link } from "react-router-dom";
 
 // Import AOS for scroll animations
 import AOS from "aos";
@@ -90,9 +90,9 @@ export default function Home() {
     </p>
 
     {/* Button moved after paragraphs */}
- <a href="/paintings" className="art-button">
-  MY WORK
-</a>
+<Link to="/paintings">
+  <button className="art-button">MY WORK</button>
+</Link>
 
   </div>
 </section>
