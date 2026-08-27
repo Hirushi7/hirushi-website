@@ -33,10 +33,12 @@ export default function Gallery() {
       <div className="gallery-item">
       <a
   href="#section1"
-  onClick={() => {
+  onClick={(e) => {
+    e.preventDefault(); // prevent default jump
     const section = document.getElementById("section1");
     if (section) {
       section.classList.add("animate-section");
+      section.scrollIntoView({ behavior: "smooth" }); // smooth scroll
       setTimeout(() => section.classList.remove("animate-section"), 1200);
     }
   }}
@@ -44,6 +46,7 @@ export default function Gallery() {
   <img src={eyeball1} alt="My journey graphic" className="slide-in" />
   <p className="fade-in">ABOUT ME</p>
 </a>
+
 
       </div>
       <div className="gallery-item">
