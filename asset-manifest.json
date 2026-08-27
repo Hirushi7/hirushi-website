@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/hirushi-website/static/css/main.f48967cc.css",
-    "main.js": "/hirushi-website/static/js/main.cb345e2c.js",
+    "main.js": "/hirushi-website/static/js/main.466f9d1d.js",
     "static/media/experience1.mp4": "/hirushi-website/static/media/experience1.1fbb626e292ee211a726.mp4",
     "static/media/journey3.png": "/hirushi-website/static/media/journey3.6d7cb629573dcdf17fc9.png",
     "static/media/journey4.png": "/hirushi-website/static/media/journey4.e4e732d22f50a9b09a75.png",
@@ -83,10 +83,10 @@
     "static/media/digital3.jpeg": "/hirushi-website/static/media/digital3.787f8128fd93af4369c5.jpeg",
     "index.html": "/hirushi-website/index.html",
     "main.f48967cc.css.map": "/hirushi-website/static/css/main.f48967cc.css.map",
-    "main.cb345e2c.js.map": "/hirushi-website/static/js/main.cb345e2c.js.map"
+    "main.466f9d1d.js.map": "/hirushi-website/static/js/main.466f9d1d.js.map"
   },
   "entrypoints": [
     "static/css/main.f48967cc.css",
-    "static/js/main.cb345e2c.js"
+    "static/js/main.466f9d1d.js"
   ]
 }
