@@ -37,13 +37,14 @@ export default function Gallery() {
     const section = document.getElementById("section1");
     if (section) {
       section.classList.add("animate-section");
-      setTimeout(() => section.classList.remove("animate-section"), 1200); // remove after animation
+      setTimeout(() => section.classList.remove("animate-section"), 1200);
     }
   }}
 >
   <img src={eyeball1} alt="My journey graphic" className="slide-in" />
   <p className="fade-in">ABOUT ME</p>
 </a>
+
       </div>
       <div className="gallery-item">
         <a
