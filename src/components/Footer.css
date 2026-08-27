@@ -1,0 +1,38 @@
+/* Footer wrapper */
+footer {
+  background: linear-gradient(135deg, #0a0a0a, #000000); /* subtle gradient */
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif; /* refined serif */
+  padding: 2rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.214);
+  text-align: center;
+}
+
+/* Inner container */
+footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Text */
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+/* Hover accent for links (if you add any later) */
+footer a {
+  color: #f7f8f7;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace; /* accent font */
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fdfdfd;
+}

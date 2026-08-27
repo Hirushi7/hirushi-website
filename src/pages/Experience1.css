@@ -1,0 +1,203 @@
+/* Page wrapper */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+.experience-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ✅ full window height */
+  overflow: hidden;
+}
+
+/* Hero section with video */
+.experience-hero {
+  position: relative;
+  height: 290px; /* adjust height as needed */
+  overflow: hidden;
+  ;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ makes video cover the whole area */
+  z-index: -1; /* ✅ keeps video behind content */
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1; /* ✅ ensures heading is on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* ✅ centers heading vertically */
+  background: rgba(0,0,0,0.4); /* optional dark overlay for readability */
+}
+
+.experience-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+   font-family: 'Cinzel', serif;   /* bold, cinematic */
+   padding-top: 30px;
+}
+
+/* Category nav bar */
+.experience-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #4f6966;
+  color: #b7d0cd;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+   font-family: 'JetBrains Mono', monospace; /* clean accent font */
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #445351;
+  color: #fff;
+}
+
+/* Experience grid */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 0 20px 40px;
+}
+
+@media (min-width: 768px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.experience-card {
+  background: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(80, 159, 141, 0.429);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(87, 152, 137, 0.425);
+}
+
+.experience-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.experience-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.experience-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #05ac95;
+  font-family: 'JetBrains Mono', monospace; /* techy accent */
+}
+
+.experience-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+   font-family:  serif;   /* bold, cinematic */
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  /* Hero section */
+  .experience-hero {
+    height: 200px;              /* shorter hero on mobile */
+  }
+
+  .experience-heading {
+    font-size: 1.8rem;          /* smaller heading */
+    padding-top: 0;
+  }
+
+  /* Category nav bar */
+  .experience-nav {
+    flex-wrap: wrap;            /* allow buttons to wrap */
+    gap: 8px;
+    margin: 20px 10px;
+    padding: 0 10px;
+  }
+
+  .nav-btn {
+    flex: 1 1 45%;              /* buttons take half width */
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  /* Experience grid */
+  .experience-grid {
+    grid-template-columns: 1fr; /* single column on mobile */
+    gap: 1.2rem;
+    padding: 0 10px 20px;
+  }
+
+  .experience-card {
+    border-radius: 8px;
+  }
+
+  .experience-image img {
+    height: auto;               /* let image scale naturally */
+    max-height: 180px;          /* smaller image height */
+  }
+
+  .experience-content {
+    padding: 1rem;
+    text-align: center;         /* center text for mobile */
+  }
+
+  .experience-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .experience-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .experience-heading {
+    font-size: 1.5rem;
+  }
+
+  .nav-btn {
+    flex: 1 1 100%;             /* buttons full width */
+  }
+
+  .experience-content h3 {
+    font-size: 1rem;
+  }
+
+  .experience-content p {
+    font-size: 0.8rem;
+  }
+}

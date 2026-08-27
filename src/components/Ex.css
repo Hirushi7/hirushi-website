@@ -1,0 +1,100 @@
+.ex-section {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* center vertically */
+  align-items: center;       /* center horizontally */
+  padding: clamp(20px, 4vw, 40px);
+  min-height: 40vh;          /* reduced height */
+  text-align: center;
+}
+
+.ex-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, #4d736e, #0a0a0a, #111, #659790);
+  background-size: 600% 600%;
+  animation: gradientMove 12s ease infinite;
+  z-index: 0;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ex-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center;
+  gap: 4px;              /* reduce spacing between subtitle and title */
+  text-align: center;
+}
+
+/* Subtitle and Title with animated color */
+.ex-subtitle,
+.ex-title {
+  animation: textColorShift 12s ease infinite;
+
+}
+.ex-subtitle {
+  margin: 0;             /* remove extra margin */
+}
+
+.ex-title {
+  margin: 0;             /* remove extra margin */
+}
+
+@keyframes textColorShift {
+  0%   { color: #4d736e; }
+  50%  { color: #ffffff; }
+  100% { color: #659790; }
+}
+
+.ex-title {
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: clamp(28px, 6vw, 72px); /* smaller title */
+}
+
+.ex-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* centers text + icon */
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1.5px solid #72b0a8;
+  border-radius: 8px;
+  color: #86c0b8;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(5, 172, 149, 0.14);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+  margin-top: 10px;
+}
+
+
+.ex-button:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.ex-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(111, 162, 155, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(5,172,149,0); }
+  100% { box-shadow: 0 0 0 0 rgba(5,172,149,0); }
+}

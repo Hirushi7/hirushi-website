@@ -1,0 +1,282 @@
+/* Page wrapper */
+.paintings-page {
+  background: #000000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Heading area */
+.paintings-header {
+  text-align: center;
+  margin: 70px 0 20px; /* spacing below navbar */
+  position: relative;  /* not fixed or sticky */
+}
+
+
+.paintings-header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.paintings-header p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Category nav bar */
+.paintings-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+   transition: transform 0.3s ease, opacity 0.3s ease; /* ✅ smooth transition */
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+}
+
+.nav-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;   /* ✅ circular shape */
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-item.active .nav-image {
+    border-color: #55817b; /* highlight active category */
+  transform: scale(1.15); /* subtle zoom for active */
+}
+
+.nav-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: center;
+}
+
+.nav-item.active .nav-label {
+  color: #55817b; /* highlight text when active */
+}
+
+/* Gallery grid */
+.paintings-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 0 20px;
+  padding-top: 50px;
+   animation: fadeIn 0.6s ease; /* ✅ fade animation */
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.painting-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.painting-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.painting-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Hover overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+.painting-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  display: flex;
+  max-width: 800px;
+  width: 90%;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-left img {
+  width: 100%;
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.modal-right {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.close-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  /* Heading */
+  .paintings-header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Category nav bar */
+  .paintings-nav {
+    flex-wrap: wrap;          /* allow buttons to wrap */
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .nav-btn {
+    flex: 1 1 45%;            /* buttons take half width */
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  /* Gallery grid */
+  .paintings-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 0 10px;
+    padding-top: 30px;
+  }
+
+  .painting-card img {
+    border-radius: 6px;
+  }
+
+  /* Overlay text smaller */
+  .overlay h3 {
+    font-size: 1rem;
+  }
+  .overlay p {
+    font-size: 0.8rem;
+  }
+
+  /* Modal layout */
+  .modal-content {
+    flex-direction: column;   /* stack image and text vertically */
+    max-width: 95%;
+  }
+
+  .modal-left, .modal-right {
+    flex: 1 1 100%;
+  }
+
+  .modal-right {
+    padding: 15px;
+  }
+
+  .modal-right h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal-right p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .close-btn {
+    width: 100%;              /* full width button */
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .paintings-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .nav-btn {
+    flex: 1 1 100%;           /* buttons full width */
+  }
+
+  .paintings-gallery {
+    grid-template-columns: 1fr; /* single column */
+  }
+}
+

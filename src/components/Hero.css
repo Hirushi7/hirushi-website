@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+.hero {
+  position: relative;
+  background: #000;
+  overflow: hidden; /* ensures content stays inside the clip */
+}
+.hero-content {
+    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 390px;
+margin-bottom: -90px; /* no extra space */  background: #000000;
+  
+}
+
+
+/* .curve{
+    position: relative;
+    height: 250px;
+    width: 100%;
+    bottom: 0;
+}
+
+.curve::before{
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: #111;
+    transform: translate(85%, 60%);
+}
+.curve::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: #111;
+    transform: translate(-4%, 40%);
+
+} */
+
+/* Eye + name */
+
+.eye {
+    margin-top: 150px;
+ width: 600px;
+  height: auto;
+  transform: scale(0);
+  animation: eyeSlide 2s ease-out forwards;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 1; /* behind text */
+}
+.name, .name-right, .hir, .ushi {
+  font-family: 'Cinzel', serif;  /* new font */
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+}
+
+
+.name {
+  font-size: 5rem;
+  color: white;
+  z-index: 2; /* above eye */
+  position: relative;
+  margin-top: 350px;
+  gap: 40px;
+}
+
+.hir {
+    opacity: 0;
+  animation: fadeInLeft 2s ease forwards;
+  animation-delay: 2s;
+   margin-top: 350px;
+}
+
+.ushi {
+    margin-left: -0.1.5em; /* tighten spacing so it flows */
+  position: relative;  /* stays inline with HIR */
+  opacity: 0;
+  animation: fadeInLeft 2s ease forwards;
+  animation-delay: 2.5s;
+   margin-top: 350px;
+}
+
+
+  .name-right {
+ font-size: 1.5rem;
+  opacity: 0;
+  animation: fadeInRight 2s ease forwards;
+  animation-delay: 3s;
+  margin-top: 330px;
+  letter-spacing: 0.2em;
+
+
+  position: relative;   /* independent positioning */
+  left: 50px;
+}
+
+/* Animations */
+@keyframes eyeSlide {
+ 0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  80%  { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Default (desktop) styles remain as you have */
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;   /* stack vertically */
+    gap: 40px;                /* reduce spacing */
+    margin-bottom: -400px;
+    margin-top: 150px;
+  }
+
+  .eye {
+    width: 250px;             /* smaller eye graphic */
+    margin-top: 50px;
+    position: relative;       /* no absolute positioning */
+    left: 120px;
+    top: auto;
+    transform: scale(1); 
+    align-items: center;     /* keep visible without animation glitch */
+  }
+
+  .name {
+    font-size: 2.5rem;        /* smaller text */
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .hir, .ushi {
+    margin-top: 0;
+    font-size: 2.5rem;
+    display: inline-block;
+  }
+
+  .name-right {
+    font-size: 1rem;
+    margin-top: -30px;
+    left: 0;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+}

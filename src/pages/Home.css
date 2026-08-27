@@ -1,0 +1,211 @@
+.art-section {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(rgba(6, 6, 6, 0.899), rgb(22, 22, 22));
+  background-size: cover;
+  background-position: center;
+  color: #f5f5f5;
+  padding: 60px 40px;
+  gap: 40px;
+  overflow: hidden; /* ensures gradient overlay stays inside */
+}
+
+/* Bottom gradient overlay */
+.art-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* adjust height of fade */
+  background: linear-gradient(to top, rgb(6, 6, 6), rgba(41, 41, 41, 0));
+  pointer-events: none; /* keeps it non-interactive */
+}
+.art-left {
+  flex: 1;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  padding-left: 60px;   /* adds space inside the left column */
+  margin-left: 40px;    /* pushes the whole block away from the edge */
+}
+
+
+.art-left h2 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Cinzel', sans-serif;
+  letter-spacing: 2px; /* optional spacing for style */
+}
+
+.art-left p {
+margin-top: -200px; /* creates space above the paragraph */  ;
+margin-left: -60px;
+
+
+}
+/* Overlay only on the right side */
+.art-right {
+  flex: 2;
+  font-family: 'Poppins', sans-serif; /* example new font */
+  position: relative;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.art-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;       /* covers the right column only */
+  height: 100%;
+  background: rgba(37,37,37,0.8); /* dark overlay */
+  z-index: -1;       /* keeps overlay behind text */
+}
+
+/* Headings */
+.art-right h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs without uppercase */
+.art-right p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-transform: none; /* removes uppercase */
+  margin-bottom: 40px;
+}
+
+.art-button {
+  margin-top: 1.5rem;    /* spacing after text */
+  padding: 0.5rem 1.5rem;
+  background: #577672;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+    text-decoration: none;   /* removes und11erline */
+}
+.art-button:hover {
+  background-color: #4a4949; /* subtle hover effect */
+  transform: translateY(-2px);
+  color: white;
+   text-decoration: none;   /* keep underline off on hover */
+}
+
+
+.animate-section {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-image {
+  margin: 15rem 0;
+  display: flex;
+  justify-content: center;
+ margin-left: -50px;
+}
+
+.profile-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;   /* circular portrait */
+  border: 3px solid #577a76;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+.profile-image img:hover {
+  transform: scale(1.05);
+}
+::-webkit-scrollbar{
+    width: 0.5vw;
+    background: grey;
+}
+::-webkit-scrollbar-thumb{
+    background: -webkit-linear-gradient(transparent,#f1f1f1);
+    background: linear-gradient(transparent,#f1f1f1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+   background: -webkit-linear-gradient(transparent,#3f625a);
+   background: linear-gradient(transparent,#3e6b64); 
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .art-section {
+    flex-direction: column;       /* stack left and right vertically */
+    align-items: center;          /* center content */
+    padding: 40px 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .art-left {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .art-left h2 {
+    position: static;             /* remove absolute positioning */
+    transform: none;
+    font-size: 2.5rem;            /* smaller heading */
+    margin-bottom: 20px;
+  }
+
+  .profile-image {
+    margin: 2rem 0;               /* reduce spacing */
+    margin-left: 0;
+  }
+
+  .profile-image img {
+    width: 180px;                 /* smaller portrait */
+    height: 180px;
+  }
+
+  .art-left p {
+    margin: 1rem 0;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+
+  .art-right {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .art-right h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .art-right p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .art-button {
+    width: 100%;                  /* full width button on mobile */
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}

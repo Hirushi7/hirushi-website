@@ -1,0 +1,10 @@
+
+.curve-wrapper {
+  background:  #252525; /* background color behind curve */
+}.curve {
+  background: #000;
+  height: 200px;
+  border-bottom-left-radius: 250% 1000px;
+  border-bottom-right-radius: 250% 1000px;
+  margin-bottom: 50px;
+}
