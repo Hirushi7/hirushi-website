@@ -10,23 +10,26 @@ export default function Contact() {
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    emailjs.send(
-      "service_rae69rg",     // from EmailJS dashboard
-      "template_mha5eca",    // from EmailJS dashboard
-      formData,
-      "CZLdKur2TAVsrsUAV"      // from EmailJS dashboard
-    )
-    .then(() => {
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    })
-    .catch(() => {
-      alert("Error sending message. Please try again.");
-    });
-  };
+  emailjs.sendForm(
+    "service_rae69rg",     // Service ID
+    "template_mha5eca",    // Template ID
+    e.target,              // <-- the actual form element
+    "CZLdKur2TAVsrsUAV"    // Public Key
+  )
+  .then(() => {
+    alert("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
+  })
+  .catch((error) => {
+    console.error("EmailJS error:", error);
+    alert("Error sending message. Please try again.");
+  });
+};
+
+
 
   return (
     <div className="contact-page">
@@ -52,12 +55,13 @@ export default function Contact() {
 
         <div className="contact-form">
           <h2>Send a Message</h2>
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-            <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-            <textarea name="message" rows="5" placeholder="Your Message" value={formData.message} onChange={handleChange} required />
-            <button type="submit" className="send-btn">Send</button>
-          </form>
+         <form id="contact-form" onSubmit={handleSubmit}>
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" rows="5" placeholder="Your Message" required />
+  <button type="submit" className="send-btn">Send</button>
+</form>
+
         </div>
       </section>
       <Footer />
